@@ -1,3 +1,20 @@
-uvicorn
+ uvicorn
 fastapi
+python-multipart
+
+tqdm
+motor
+pydantic
+pydantic[email]
+python-jose
+pymongo[srv]
+passlib
+bcrypt
+
+pydub
+httpx
+
+authlib
+
 python-dotenv
+starlette
