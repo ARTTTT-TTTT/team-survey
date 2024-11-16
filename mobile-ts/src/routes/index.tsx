@@ -24,6 +24,20 @@ export const AppRoutes: React.FC = function () {
       theme={isDarkMode ? DarkTheme : DefaultTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       {!isLoggedIn ? <AuthRoutes /> : <HomeRoutes />}
+      {/*<Stack.Navigator>*/}
+          {/* Routing สำหรับ Admin */}
+          {/* <Stack.Screen name="AdminDashboard" component={AdminDashboard} /> */}
+          
+          {/* Routing สำหรับ Team Leader */}
+          {/* <Stack.Screen name="TeamLeaderDashboard" component={TeamLeaderDashboard} /> */}
+          
+          {/* Routing สำหรับ Worker */}
+          {/* <Stack.Screen name="WorkerDashboard" component={WorkerDashboard} /> */}
+       {/* </Stack.Navigator>*/}
     </NavigationContainer>
+ 
+    
+      
+
   )
 }

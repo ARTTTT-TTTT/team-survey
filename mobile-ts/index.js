@@ -2,7 +2,7 @@ import 'react-native-gesture-handler'
 import './src/localization/i18n'
 import { AppRegistry, LogBox } from 'react-native'
 import { name as appName } from './app.json'
-import { Starter } from './src/starter'
+import { TeamSurvey } from './src/TeamSurvey'
 
 const IGNORED_LOGS = ['Warning: Function components cannot be given refs']
 
@@ -24,4 +24,4 @@ if (__DEV__) {
   console.error = withoutIgnored(console.error)
 }
 
-AppRegistry.registerComponent(appName, () => Starter)
+AppRegistry.registerComponent(appName, () => TeamSurvey)
