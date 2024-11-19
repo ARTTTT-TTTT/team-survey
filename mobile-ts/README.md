@@ -8,12 +8,10 @@ yarn
 
 # run application android development
 yarn android:dev
-yarn android:stg
 yarn android:prod
 
 # run application iOS development
 yarn ios:dev
-yarn ios:stg
 yarn ios:prod
 
 # build release with cmd
