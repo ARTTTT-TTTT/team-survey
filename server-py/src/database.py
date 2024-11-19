@@ -22,7 +22,7 @@ DB_URL = os.environ.get("DB_URL", uri)
 #--------------------------------------------------------------
 
 client = AsyncIOMotorClient(DB_URL)
-db = client["team-survey"]
+db = client["development"]
 users_collection = db['users']
 images_collection = db['images.files']
 
