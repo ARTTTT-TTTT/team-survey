@@ -17,8 +17,8 @@ quoted_password = urllib.parse.quote_plus(MONGODB_PASSWORD)
 uri = f"mongodb+srv://{quoted_username}:{quoted_password}{MONGODB_URI}"
 
 #------------------------Development---------------------------
-DB_URL = os.environ.get("DB_URL", uri)
-#DB_URL = os.environ.get("DB_URL", "mongodb://localhost:27017")
+#DB_URL = os.environ.get("DB_URL", uri)
+DB_URL = os.environ.get("DB_URL", "mongodb://localhost:27017")
 #--------------------------------------------------------------
 
 client = AsyncIOMotorClient(DB_URL)

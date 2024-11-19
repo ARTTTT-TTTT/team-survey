@@ -38,29 +38,47 @@ class ReadUserProfileModel(BaseModel):
             }
         }
 
-class UserModel(BaseModel):
-    id: str = Field(default_factory=lambda: str(ObjectId()), alias="_id")
-    email: EmailStr
-    username: str
-    first_name: str
-    last_name: str
-    password: str
-    role: str = "user"
-    age: Optional[str] = None
-    gender: Optional[str] = None
+# class UserModel(BaseModel):
+#     id: str = Field(default_factory=lambda: str(ObjectId()), alias="_id")
+#     email: EmailStr
+#     username: str
+#     first_name: str
+#     last_name: str
+#     password: str
+#     role: str = "user"
+#     age: Optional[str] = None
+#     gender: Optional[str] = None
 
+#     class Config:
+#         #arbitrary_types_allowed = True
+#         json_encoders = {ObjectId: str}
+#         json_schema_extra = {
+#             "example": {
+#                 "email": "john.doe@example.com",
+#                 "username": "johndoe",
+#                 "first_name": "John",
+#                 "last_name": "Doe",
+#                 "password": "hashed_password",
+#                 "role": "user",
+#                 "age": "1990-01-01",
+#                 "gender": "male",
+#             }
+#         }
+
+
+class UserModel(BaseModel):
+    id: Optional[str] = Field(default_factory=lambda: str(ObjectId()), alias="_id")
+    firstname:str
+    lastname:str
+    email:str
+    role_id: str  # Reference to RoleModel (as ObjectId string)
+    team_leader_id: Optional[str] = None  # Nullable, links to another UserModel
     class Config:
-        #arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
-        json_schema_extra = {
+        schema_extra = {
             "example": {
-                "email": "john.doe@example.com",
                 "username": "johndoe",
-                "first_name": "John",
-                "last_name": "Doe",
-                "password": "hashed_password",
-                "role": "user",
-                "age": "1990-01-01",
-                "gender": "male",
+                "role_id": "64b2d1f13b9a3c5ebfde1234",
+                "team_leader_id": "64b2d1f13b9a3c5ebfde5678",
             }
         }
