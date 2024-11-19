@@ -6,11 +6,10 @@ import { StackNavigationProp } from '@react-navigation/stack'
 
 import { useThemeStore } from '@/common/stores'
 import { navigationRef } from '@/common/utils/navigation-utilities'
-import { AuthRoutes, AuthStackParamList } from '@/modules/auth/routes'
 import { useAuthStore } from '@/modules/auth/stores'
 import { HomeRoutes, HomeStackParamList } from '@/modules/home/routes'
 
-export type AppParamList = AuthStackParamList & HomeStackParamList
+export type AppParamList = HomeStackParamList
 
 export type AppNavigationProp = StackNavigationProp<AppParamList>
 
@@ -23,21 +22,7 @@ export const AppRoutes: React.FC = function () {
       ref={navigationRef}
       theme={isDarkMode ? DarkTheme : DefaultTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
-      {!isLoggedIn ? <AuthRoutes /> : <HomeRoutes />}
-      {/*<Stack.Navigator>*/}
-          {/* Routing สำหรับ Admin */}
-          {/* <Stack.Screen name="AdminDashboard" component={AdminDashboard} /> */}
-          
-          {/* Routing สำหรับ Team Leader */}
-          {/* <Stack.Screen name="TeamLeaderDashboard" component={TeamLeaderDashboard} /> */}
-          
-          {/* Routing สำหรับ Worker */}
-          {/* <Stack.Screen name="WorkerDashboard" component={WorkerDashboard} /> */}
-       {/* </Stack.Navigator>*/}
+      {!isLoggedIn ? <HomeRoutes /> : <HomeRoutes />}
     </NavigationContainer>
- 
-    
-      
-
   )
 }
