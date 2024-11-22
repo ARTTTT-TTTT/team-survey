@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 /* import { Loader } from '@components/index';
 import { useGlobalContext } from '@context/globalContext */
@@ -11,7 +10,7 @@ export default function Welcome() {
     if (!loading && isLogged) return <Redirect href="/home" />; */
 
     return (
-        <SafeAreaView className="bg-primary h-full">
+        <View className="bg-primary h-full">
             {/* <Loader isLoading={loading} /> */}
             <ScrollView
                 contentContainerStyle={{
@@ -27,6 +26,6 @@ export default function Welcome() {
             </ScrollView>
 
             <StatusBar />
-        </SafeAreaView>
+        </View>
     );
 }

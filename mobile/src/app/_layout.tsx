@@ -1,7 +1,8 @@
-import './global.css';
 import { Theme, ThemeProvider } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useState, useEffect } from 'react';
 import { Platform } from 'react-native';
-import { useEffect } from 'react';
+
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
@@ -13,16 +14,52 @@ import { getItem, setItem } from '@utils/store';
 const LIGHT_THEME: Theme = {
     dark: false,
     colors: NAV_THEME.light,
+    fonts: {
+        regular: {
+            fontFamily: 'System',
+            fontWeight: 'normal',
+        },
+        medium: {
+            fontFamily: 'System',
+            fontWeight: '500',
+        },
+        bold: {
+            fontFamily: 'System',
+            fontWeight: '700',
+        },
+        heavy: {
+            fontFamily: 'System',
+            fontWeight: '900',
+        },
+    },
 };
 
 const DARK_THEME: Theme = {
     dark: true,
     colors: NAV_THEME.dark,
+    fonts: {
+        regular: {
+            fontFamily: 'System',
+            fontWeight: 'normal',
+        },
+        medium: {
+            fontFamily: 'System',
+            fontWeight: '500',
+        },
+        bold: {
+            fontFamily: 'System',
+            fontWeight: '700',
+        },
+        heavy: {
+            fontFamily: 'System',
+            fontWeight: '900',
+        },
+    },
 };
 
 export default function AppLayout() {
     const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
-    const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
+    const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
 
     // === Font ===
     const [fontsLoaded, error] = useFonts({
@@ -83,9 +120,14 @@ export default function AppLayout() {
     return (
         <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
             <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-            <Stack>
-                <Stack.Screen name="index" options={{ headerShown: false }} />
-            </Stack>
+            <SafeAreaView>
+                <Stack>
+                    <Stack.Screen
+                        name="index"
+                        options={{ headerShown: false }}
+                    />
+                </Stack>
+            </SafeAreaView>
         </ThemeProvider>
     );
 }

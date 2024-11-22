@@ -21,6 +21,7 @@ module.exports = {
                 endOfLine: 'auto',
             },
         ],
+        '@typescript-eslint/no-require-imports': 'off',
     },
     settings: {
         react: {
