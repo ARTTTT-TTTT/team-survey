@@ -64,7 +64,7 @@ async def register(user: UserCreateModel):
     user_dict = user.dict()
     user_dict['password'] = hashed_password
     
-    new_user = UserModel(**user_dict)
+    new_user = UserCreateModel(**user_dict)
     await users_collection.insert_one(new_user.dict(by_alias=True))
     
     return {"User registered successfully"}

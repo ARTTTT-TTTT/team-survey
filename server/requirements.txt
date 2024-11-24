@@ -1,20 +1,30 @@
+#Web Framework
 uvicorn
 fastapi
-python-multipart
+starlette
 
-tqdm
+#File Handling
+python-multipart
+pydub
+
+#Database, ORM
 motor
+pymongo[srv]
+
+#Data Validation
 pydantic
 pydantic[email]
+
+#Authentication
 python-jose
-pymongo[srv]
 passlib
 bcrypt
-
-pydub
-httpx
-
 authlib
+itsdangerous
 
+#HTTP Requests
+httpx
 python-dotenv
-starlette
+
+#Utilities
+tqdm
