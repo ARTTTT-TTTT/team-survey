@@ -1,31 +1,9 @@
-# Team Survey
-
 ## Quickstart
-
 ```bash
-npm install
+yarn
 ```
-
 ```bash
-npm start
-```
-
-### run application android development
-
-```bash
-npm run android
-```
-
-### run application iOS development
-
-```bash
-npm run ios
-```
-
-### run application Web development
-
-```bash
-npm run web
+yarn start
 ```
 
 ##
@@ -33,15 +11,13 @@ npm run web
 ## Code Formatting and Linting
 
 ### prettier
-
 ```bash
-npm run format
+yarn format
 ```
 
 ### ESLint
-
 ```bash
-npm run lint
+yarn lint
 ```
 
 And more in package.json. Check it!

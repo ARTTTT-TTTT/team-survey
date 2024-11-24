@@ -1,6 +1,14 @@
-import AppLayout from '@app/_layout';
+import { Slot } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+
 import './src/style/global.css';
 
 export default function App() {
-    return <AppLayout />;
+    return (
+        <SafeAreaView>
+            <StatusBar />
+            <Slot />
+        </SafeAreaView>
+    );
 }
