@@ -36,8 +36,8 @@ class UserRoleModel(BaseModel):
 class UserModel(BaseModel):
     # id: Optional[str] = Field(default_factory=lambda: str(ObjectId()), alias="_id")
     email: EmailStr
-    firstname:str
-    lastname:str
+    first_name:str
+    last_name:str
     password: str
     role: Optional[UserRoleModel]
     customer: Optional[List[CustomerCollectModel]] = []
@@ -46,7 +46,7 @@ class UserModel(BaseModel):
         json_encoders = {ObjectId: str}
         json_schema_extra  = {
             "example": {
-                "email": "john.doe@example.com",
+                "email": "john.doe@google.com",
                 "first_name": "John",
                 "last_name": "Doe",
                 "password": "hashed_password",

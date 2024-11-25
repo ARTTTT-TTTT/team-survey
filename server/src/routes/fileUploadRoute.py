@@ -5,7 +5,7 @@ from typing import AsyncGenerator, List
 from urllib.parse import quote
 from bson import ObjectId
 
-from ..database import image_fs
+from ..services.database import image_fs
 router = APIRouter()
 
 async def get_file_stream(file_id: ObjectId) -> AsyncGenerator[bytes, None]:

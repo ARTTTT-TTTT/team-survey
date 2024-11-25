@@ -7,7 +7,7 @@ from typing import Optional
 from dotenv import load_dotenv
 import os
 
-from ..database import users_collection
+from ..services.database import users_collection
 from ..models.userModel import UserModel
 
 #------------------ Token, authentication variables --------------------------

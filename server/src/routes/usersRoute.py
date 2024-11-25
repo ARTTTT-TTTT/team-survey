@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 
 from ..models.userModel import ReadUserModel
 from .authRoute import get_current_user
-from ..database import users_collection
+from ..services.database import users_collection
 
 router = APIRouter()
 
