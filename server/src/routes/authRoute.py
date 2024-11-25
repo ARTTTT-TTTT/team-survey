@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.responses import JSONResponse
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from pydantic import BaseModel
@@ -90,5 +91,8 @@ async def register(user: UserModel):
     new_user = UserModel(**user_dict)
     await users_collection.insert_one(new_user.dict(by_alias=True))
     
-    return {"User registered successfully"}
+    return JSONResponse(
+        status_code=status.HTTP_201_CREATED,
+        content={"message": "User registered successfully"}
+    )
 

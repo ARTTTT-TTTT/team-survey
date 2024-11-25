@@ -1,6 +1,5 @@
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Alert } from 'react-native';
 import { useState } from 'react';
-
 import { Link } from 'expo-router';
 
 import { Form, Button } from '@components/ui';
@@ -12,26 +11,47 @@ export default function SignUp() {
         password: '',
     });
 
+    // ฟังก์ชันเพื่อตรวจสอบข้อมูลในฟอร์ม
+    const validateForm = () => {
+        if (!form.email || !form.password) {
+            Alert.alert('Error', 'Please fill in all fields.');
+            return false;
+        }
+        if (!/\S+@\S+\.\S+/.test(form.email)) {
+            Alert.alert('Error', 'Please enter a valid email address.');
+            return false;
+        }
+        if (form.password.length < 4) {
+            Alert.alert('Error', 'Password must be at least 4 characters.');
+            return false;
+        }
+        return true;
+    };
+
     const submit = async () => {
+        if (!validateForm()) return;
+
         setSubmitting(true);
 
         try {
             console.log('Signing Up', form.email);
         } catch (error) {
-            console.error('Error during sign-in', error);
+            console.error('Error during sign-up', error);
         } finally {
             setSubmitting(false);
         }
     };
+
     return (
         <View className="bg-primary h-full">
             <ScrollView
                 contentContainerStyle={{
-                    height: '100%',
+                    flexGrow: 1,
+                    justifyContent: 'center',
                 }}
             >
-                <View className="w-full flex justify-center items-center h-full px-4 my-6">
-                    <Text className="text-2xl font-semibold text-white mt-10 ">
+                <View className="flex items-center px-4 my-6">
+                    <Text className="text-2xl font-semibold text-white mt-10">
                         Sign Up
                     </Text>
 
@@ -41,7 +61,7 @@ export default function SignUp() {
                         handleChangeText={(e) => setForm({ ...form, email: e })}
                         otherStyles="mt-7"
                         keyboardType="email-address"
-                        placeholder={''}
+                        placeholder="Enter your email"
                     />
 
                     <Form
@@ -51,7 +71,8 @@ export default function SignUp() {
                             setForm({ ...form, password: e })
                         }
                         otherStyles="mt-7"
-                        placeholder={''}
+                        placeholder="Enter your password"
+                        // secureTextEntry // ซ่อนรหัสผ่าน
                     />
 
                     <Button
