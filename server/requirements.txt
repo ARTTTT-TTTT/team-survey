@@ -1,0 +1,30 @@
+#Web Framework
+uvicorn
+fastapi
+starlette
+
+#File Handling
+python-multipart
+pydub
+
+#Database, ORM
+motor
+pymongo[srv]
+
+#Data Validation
+pydantic
+pydantic[email]
+
+#Authentication
+python-jose
+passlib
+bcrypt==3.2.0
+authlib
+itsdangerous
+
+#HTTP Requests
+httpx
+python-dotenv
+
+#Utilities
+tqdm
