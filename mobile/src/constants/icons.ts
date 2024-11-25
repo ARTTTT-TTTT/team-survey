@@ -7,7 +7,7 @@ import setting from '@assets/icons/settings.png';
 import camera from '@assets/icons/camera.png';
 import send from '@assets/icons/send.png';
 import time from '@assets/icons/clock-hour-3.png';
-import photo from '@assets/icons/photo.png'
+import photo from '@assets/icons/photo.png';
 import photoHide from '@assets/icons/photo-off.png';
 
 export default {

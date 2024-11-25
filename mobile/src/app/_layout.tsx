@@ -6,6 +6,7 @@ import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, SplashScreen } from 'expo-router';
 
+import { AuthProvider } from '@context/authContext';
 import '../style/global.css';
 
 SplashScreen.preventAutoHideAsync();
@@ -37,22 +38,33 @@ export default function AppLayout() {
     }, [fontsLoaded, error]);
 
     return (
-        <View
-            style={{
-                flex: 1,
-                paddingTop: insets.top,
-                paddingLeft: insets.left,
-                paddingRight: insets.right,
-                paddingBottom: 0,
-            }}
-            className="bg-primary h-full"
-        >
-            <StatusBar style="light" />
-            <Stack>
-                <Stack.Screen name="index" options={{ headerShown: false }} />
-                <Stack.Screen name="(auth)" options={{ headerShown: true }} />
-                <Stack.Screen name="(worker)" options={{ headerShown: true }} />
-            </Stack>
-        </View>
+        <AuthProvider>
+            <View
+                style={{
+                    flex: 1,
+                    paddingTop: insets.top,
+                    paddingLeft: insets.left,
+                    paddingRight: insets.right,
+                    paddingBottom: 0,
+                }}
+                className="bg-primary h-full"
+            >
+                <StatusBar style="light" />
+                <Stack>
+                    <Stack.Screen
+                        name="index"
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name="(auth)"
+                        options={{ headerShown: true }}
+                    />
+                    <Stack.Screen
+                        name="(worker)"
+                        options={{ headerShown: true }}
+                    />
+                </Stack>
+            </View>
+        </AuthProvider>
     );
 }

@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// กำหนด Base URL ของ API ที่ใช้ในแอปพลิเคชันของคุณ
-const API_URL = 'YOUR_BACKEND_API_URL';
+const API_URL = 'http://192.168.1.77:8000';
 
 export const register = async (
     email: string,
@@ -10,11 +9,22 @@ export const register = async (
     lastName: string,
 ) => {
     try {
-        const response = await axios.post(`${API_URL}/register`, {
+        const response = await axios.post(`${API_URL}/auth/register`, {
             email,
             password,
             first_name: firstName,
             last_name: lastName,
+            role: {
+                admin_id: '',
+                role: '',
+                team_leader_id: '',
+            },
+            customer: [
+                {
+                    customer_id: '',
+                    status: '',
+                },
+            ],
         });
         return response.data;
     } catch (error) {
@@ -25,11 +35,16 @@ export const register = async (
 
 export const login = async (email: string, password: string) => {
     try {
-        const response = await axios.post(`${API_URL}/login`, {
-            username: email, // เปลี่ยน form_data.username ไปเป็น email
-            password,
+        const data = new URLSearchParams();
+        data.append('username', email);
+        data.append('password', password);
+
+        const response = await axios.post(`${API_URL}/auth/login`, data, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
         });
-        return response.data; // return token information
+        return response.data;
     } catch (error) {
         console.error('Error during login:', error);
         throw error;
@@ -38,7 +53,7 @@ export const login = async (email: string, password: string) => {
 
 export const fetchCurrentUser = async (token: string) => {
     try {
-        const response = await axios.get(`${API_URL}/me`, {
+        const response = await axios.get(`${API_URL}/users/me`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

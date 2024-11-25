@@ -1,10 +1,12 @@
 import { View, Image, ScrollView } from 'react-native';
+import { router } from 'expo-router';
 
 import { images } from '@constants/index';
+import { useAuthRedirect } from '@context/useAuthRedirect';
 import { Button } from '@components/ui';
-import { router, Link } from 'expo-router';
 
 export default function Index() {
+    useAuthRedirect();
     return (
         <View className="bg-primary h-full">
             <ScrollView
@@ -24,12 +26,12 @@ export default function Index() {
                         containerStyles="w-fit px-10 mt-7"
                         isLoading={false}
                     />
-                    <Link
-                        href="register"
-                        className="mt-7 font-bold text-3xl bg-secondary"
-                    >
-                        Register
-                    </Link>
+                    <Button
+                        title="Register"
+                        handlePress={() => router.push('/register')}
+                        containerStyles="w-fit px-10 mt-7"
+                        isLoading={false}
+                    />
                 </View>
             </ScrollView>
         </View>

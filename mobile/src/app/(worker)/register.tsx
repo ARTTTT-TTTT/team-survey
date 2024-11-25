@@ -10,6 +10,7 @@ import {
 
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 
+import { useAuthRedirect } from '@context/useAuthRedirect';
 import { icons } from '@constants/index';
 
 interface TabIconProps {
@@ -30,7 +31,7 @@ const TabIcon: React.FC<TabIconProps> = ({
             activeOpacity={0.7}
         >
             <View className="flex items-center justify-center rounded-full w-24 h-24 bg-primary">
-                <View className="flex items-center justify-center w-20 h-20 bg-transparent border-2 border-white rounded-full">
+                <View className="flex items-center justify-center w-20 h-20 bg-transparent border-2 border-quaternary rounded-full">
                     <Image
                         source={icon}
                         resizeMode="contain"
@@ -49,6 +50,7 @@ export default function Register() {
     const [photoUri, setPhotoUri] = useState<string | null>(null);
     const [isModalVisible, setModalVisible] = useState(false);
     const cameraRef = useRef<any>(null);
+    useAuthRedirect();
 
     if (!permission) {
         // Camera permissions are still loading.

@@ -1,6 +1,9 @@
 import { Text, View, ScrollView } from 'react-native';
+import { useAuthRedirect } from '@context/useAuthRedirect';
 
 export default function Dashboard() {
+    useAuthRedirect();
+
     return (
         <View className="bg-primary h-full">
             <ScrollView
