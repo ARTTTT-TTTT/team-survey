@@ -35,3 +35,6 @@ ultralytics
 pytesseract 
 numpy 
 matplotlib
+rapidfuzz
+pandas
+openpyxl
