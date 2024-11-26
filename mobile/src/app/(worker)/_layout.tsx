@@ -2,32 +2,7 @@ import { Image, Text, View } from 'react-native';
 import { Tabs } from 'expo-router';
 
 import { icons } from '@constants/index';
-
-interface TabIconProps {
-    icon: any;
-    color: string;
-    name: string;
-    focused: boolean;
-}
-
-const TabIcon: React.FC<TabIconProps> = ({ icon, color, name, focused }) => {
-    return (
-        <View className="top-9 flex items-center justify-center">
-            <Image
-                source={icon}
-                resizeMode="contain"
-                style={{ tintColor: color }}
-                className="w-14 h-14"
-            />
-            <Text
-                className={`${focused ? 'font-semibold' : 'font-regular'} text-center text-sm w-full`}
-                style={{ color }}
-            >
-                {name}
-            </Text>
-        </View>
-    );
-};
+import { TabIcon } from '@components/TabIcon';
 
 export default function WorkerLayout() {
     return (

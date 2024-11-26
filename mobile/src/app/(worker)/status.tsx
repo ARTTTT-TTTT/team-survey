@@ -4,12 +4,14 @@ import { Picker } from '@react-native-picker/picker';
 
 import { usersMock } from '@mock/index';
 import { Button } from '@components/ui';
+import { useAuthRedirect } from '@context/useAuthRedirect';
 
 export default function Status() {
     const [users, setUsers] = useState(usersMock);
     const [currentEditingId, setCurrentEditingId] = useState<string | null>(
         null,
     );
+    useAuthRedirect();
 
     const handleStatusChange = (citizen_id: string, newStatus: string) => {
         const updatedUsers = users.map((user) =>

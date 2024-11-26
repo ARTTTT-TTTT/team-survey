@@ -10,40 +10,10 @@ import {
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import * as ImageManipulator from 'expo-image-manipulator';
 
+import { CircleIcon } from '@components/CircleIcon';
 import { useAuthRedirect } from '@context/useAuthRedirect';
 import { icons } from '@constants/index';
 import { uploadIdCardImage } from '@api/scan';
-
-interface TabIconProps {
-    handlePress: () => void | Promise<void>;
-    icon: any;
-    containerStyles?: string;
-}
-
-const TabIcon: React.FC<TabIconProps> = ({
-    icon,
-    containerStyles,
-    handlePress,
-}) => {
-    return (
-        <TouchableOpacity
-            className={`flex items-center justify-center ${containerStyles}`}
-            onPress={handlePress}
-            activeOpacity={0.7}
-        >
-            <View className="flex items-center justify-center rounded-full w-24 h-24 bg-primary">
-                <View className="flex items-center justify-center w-20 h-20 bg-transparent border-2 border-quaternary rounded-full">
-                    <Image
-                        source={icon}
-                        resizeMode="contain"
-                        style={{ tintColor: '#f4f3ee' }}
-                        className="w-14 h-14"
-                    />
-                </View>
-            </View>
-        </TouchableOpacity>
-    );
-};
 
 export default function Register() {
     const [facing, setFacing] = useState<CameraType>('back');
@@ -107,16 +77,22 @@ export default function Register() {
             const result = await uploadIdCardImage(photoUri);
 
             if (result) {
-                const { id_card, address, lastname_en, name_en, name_th } =
-                    result;
+                const {
+                    id_card,
+                    address,
+                    lastname_en,
+                    name_en,
+                    name_th,
+                    new_address,
+                } = result;
                 alert(
                     `ID Card: ${id_card}\n` +
-                        `Address: ${address}\n` +
-                        `Last Name (EN): ${lastname_en}\n` +
+                        `Name (TH): ${name_th}` +
                         `First Name (EN): ${name_en}\n` +
-                        `Name (TH): ${name_th}`,
+                        `Last Name (EN): ${lastname_en}\n` +
+                        `Address: ${address}\n` +
+                        `New Address: ${new_address}\n`,
                 );
-                
             } else {
                 alert('No data found in the ID card. Please try again.');
             }
@@ -160,7 +136,7 @@ export default function Register() {
                         </Text>
                     </TouchableOpacity>
                     {/* Capture */}
-                    <TabIcon
+                    <CircleIcon
                         icon={icons.camera}
                         handlePress={handleTakePhoto}
                         containerStyles="mb-3"
@@ -202,7 +178,7 @@ export default function Register() {
                                     }}
                                 >
                                     {!sent && (
-                                        <TabIcon
+                                        <CircleIcon
                                             icon={icons.send}
                                             handlePress={handleSendPhoto}
                                             containerStyles="-mt-8"
@@ -219,7 +195,7 @@ export default function Register() {
                                         ],
                                     }}
                                 >
-                                    <TabIcon
+                                    <CircleIcon
                                         icon={icons.photoHide}
                                         handlePress={handlePhotoHide}
                                         containerStyles="-mt-8"

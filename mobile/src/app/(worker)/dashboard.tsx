@@ -1,14 +1,16 @@
 import React from 'react';
 import { Text, View, ScrollView } from 'react-native';
-import { usersMock } from '@mock/index'; // Import mock data
+
+import { usersMock } from '@mock/index';
+import { useAuthRedirect } from '@context/useAuthRedirect';
 
 export default function Dashboard() {
-    // Count the number of users by status
     const stats = {
         green: usersMock.filter((user) => user.status === 'Green').length,
         yellow: usersMock.filter((user) => user.status === 'Yellow').length,
         red: usersMock.filter((user) => user.status === 'Red').length,
     };
+    useAuthRedirect();
 
     return (
         <View className="bg-primary h-full">

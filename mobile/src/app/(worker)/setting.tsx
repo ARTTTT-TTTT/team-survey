@@ -7,6 +7,7 @@ import { Button } from '@components/ui';
 export default function Setting() {
     const { logout } = useAuth();
     useAuthRedirect();
+    
     return (
         <View className="bg-primary h-full">
             <ScrollView
