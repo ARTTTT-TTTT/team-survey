@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from dotenv import load_dotenv
 import os
 
-from .routes import authRoute, fileUploadRoute, usersRoute
+from .routes import authRoute, fileUploadRoute, scanRoute, usersRoute
 
 load_dotenv()
 
@@ -35,3 +35,4 @@ app.add_middleware(
 app.include_router(authRoute.router, prefix="/auth", tags=["Authorization"])
 app.include_router(usersRoute.router, prefix="/users", tags=["Users"])
 app.include_router(fileUploadRoute.router, prefix="/files", tags=["File Upload"])
+app.include_router(scanRoute.router, prefix="/scan", tags=["Scan"])
