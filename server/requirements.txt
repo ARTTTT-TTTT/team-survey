@@ -28,3 +28,10 @@ python-dotenv
 
 #Utilities
 tqdm
+
+#ai
+opencv-python-headless 
+ultralytics 
+pytesseract 
+numpy 
+matplotlib

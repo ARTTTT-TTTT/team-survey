@@ -6,7 +6,7 @@ from ..ai.scanFn import process_id_card
 router = APIRouter()
 
 
-@router.post("/process-id-card/")
+@router.post("/process-id-card")
 async def process_uploaded_image(image_file: UploadFile = File(...)):
     try:
         # Ensure the uploaded file is an image
@@ -28,9 +28,8 @@ async def process_uploaded_image(image_file: UploadFile = File(...)):
         os.remove(temp_file_path)
         
         # Return the result
-        return {
-            "id_card_data": result
-        }
+        return result
+
     except ValueError as ve:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,

@@ -29,5 +29,5 @@ deactivate
 uvicorn src.main:app --reload
 ```
 ```bash
-uvicorn src.main:app --host 0.0.0.0 --port 8000
+uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
 ```
