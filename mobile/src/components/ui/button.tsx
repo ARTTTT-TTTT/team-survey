@@ -19,13 +19,13 @@ export const Button = ({
         <TouchableOpacity
             onPress={handlePress}
             activeOpacity={0.7}
-            className={`bg-secondary rounded-xl min-h-[62px] flex flex-row justify-center items-center ${containerStyles} ${
+            className={`bg-secondary rounded-xl min-h-[62px] w-[50%] flex flex-row justify-center items-center text-nowrap ${containerStyles} ${
                 isLoading ? 'opacity-50' : ''
             }`}
             disabled={isLoading}
         >
             <Text
-                className={`text-quaternary font-semibold text-lg text-center ${textStyles}`}
+                className={`text-quaternary font-semibold text-xl text-center w-full ${textStyles}`}
             >
                 {title}
             </Text>

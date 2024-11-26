@@ -1459,6 +1459,16 @@
   dependencies:
     merge-options "^3.0.4"
 
+"@react-native-community/image-editor@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/image-editor/-/image-editor-4.2.1.tgz#d432efe79c9d7621aa4017b1065f094dda4ed5a2"
+  integrity sha512-wb+9jd3RgaHFodJpTI5quPW3iYXyFwfB7BNviR5ssxEtgk4g7hPXP6ZTuG1Bw6VTNqjOkV0hGNYYSFIGpcNPKQ==
+
+"@react-native-picker/picker@^2.9.0":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.9.0.tgz#0a7053ca174ec697388cb79032fb4c1445554e07"
+  integrity sha512-khEhIW/uhfMqq/+tvg4rEAiPGT8GX+Y6QydlP2TSMSmRHoSJK+ShXvXZXSr4Sii4imkj4BwvLunGywwtQDODqg==
+
 "@react-native/assets-registry@0.76.3":
   version "0.76.3"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.76.3.tgz#c31e91b6f60fed7b0bfc1af617e3a61218d1ec08"
@@ -3639,6 +3649,18 @@ expo-font@~13.0.1:
   integrity sha512-8JE47B+6cLeKWr5ql8gU6YsPHjhrz1vMrTqYMm72No/8iW8Sb/uL4Oc0dpmbjq3hLLXBY0xPBQOgU7FQ6Y04Vg==
   dependencies:
     fontfaceobserver "^2.1.0"
+
+expo-image-loader@~5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-5.0.0.tgz#4f58a21ab26e40d6fccc211b664fd9fe21a5dcb8"
+  integrity sha512-Eg+5FHtyzv3Jjw9dHwu2pWy4xjf8fu3V0Asyy42kO+t/FbvW/vjUixpTjPtgKQLQh+2/9Nk4JjFDV6FwCnF2ZA==
+
+expo-image-manipulator@^13.0.5:
+  version "13.0.5"
+  resolved "https://registry.yarnpkg.com/expo-image-manipulator/-/expo-image-manipulator-13.0.5.tgz#ca111f9c3864391ccd598b727fe2348e447e7e86"
+  integrity sha512-ILBwBKATmO1469VS0o1dQq2iQwekMq32XCyNaeQ9gw9+2NBoN6Z64bRHEZkPxhHe6ULDM+zOTOL32/k+iVluYQ==
+  dependencies:
+    expo-image-loader "~5.0.0"
 
 expo-keep-awake@~14.0.1:
   version "14.0.1"
@@ -6279,6 +6301,11 @@ react-native-helmet-async@2.0.4:
     invariant "^2.2.4"
     react-fast-compare "^3.2.2"
     shallowequal "^1.1.0"
+
+react-native-image-crop-picker@^0.41.5:
+  version "0.41.5"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.41.5.tgz#fe1aa8f401b3d68a8a9823e95de6cd7a601c651a"
+  integrity sha512-7pnmp+VpVSqDkN1wTZfxjkhXTV9+3yhpc3ntlhy0HwRubMuHiF1Vhg4NC7dPvSkoYbOfjx1tgNsewKOKbxwrWg==
 
 react-native-is-edge-to-edge@^1.1.6:
   version "1.1.6"

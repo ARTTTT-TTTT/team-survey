@@ -12,7 +12,8 @@
             "@style/*": ["./src/style/*"],
             "@types/*": ["./src/types/*"],
             "@utils/*": ["./src/utils/*"],
-            "@assets/*": ["./src/assets/*"]
+            "@assets/*": ["./src/assets/*"],
+            "@mock/*": ["./src/__mock__/*"]
         }
     }
 }

@@ -14,6 +14,8 @@ interface AuthContextData {
     logout: () => void;
 }
 
+interface AuthProviderProps {}
+
 const AuthContext = createContext<AuthContextData | undefined>(undefined);
 
 export const useAuth = (): AuthContextData => {
@@ -24,7 +26,9 @@ export const useAuth = (): AuthContextData => {
     return context;
 };
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider: React.FC<
+    React.PropsWithChildren<AuthProviderProps>
+> = ({ children }) => {
     const [authToken, setAuthToken] = useState<string | null>(null);
     const [user, setUser] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -47,7 +51,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const checkTokenChange = async () => {
         const storedToken = await AsyncStorage.getItem('authToken');
-        console.log('checkTokenChange');
 
         // ตรวจสอบถ้า token ใน AsyncStorage ไม่ตรงกับ authToken ที่มีอยู่
         if (storedToken !== authToken) {

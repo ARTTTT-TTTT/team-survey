@@ -9,12 +9,17 @@ import {
     Platform,
 } from 'react-native';
 import { useState } from 'react';
-import { router, Link } from 'expo-router';
+import { useCallback } from 'react';
+import { Link, router } from 'expo-router';
+
+import { useFocusEffect } from '@react-navigation/native';
 
 import { Form, Button } from '@components/ui';
+import { useAuth } from '@context/authContext';
 import { register } from '@api/auth';
 
 export default function SignUp() {
+    const { authToken } = useAuth();
     const [isSubmitting, setSubmitting] = useState(false);
     const [form, setForm] = useState({
         email: '',
@@ -22,6 +27,14 @@ export default function SignUp() {
         firstName: '',
         lastName: '',
     });
+
+    useFocusEffect(
+        useCallback(() => {
+            if (authToken) {
+                return router.push('/dashboard');
+            }
+        }, [authToken]),
+    );
 
     const validateForm = () => {
         if (

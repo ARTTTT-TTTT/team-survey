@@ -57,11 +57,11 @@ export default function AppLayout() {
                     />
                     <Stack.Screen
                         name="(auth)"
-                        options={{ headerShown: true }}
+                        options={{ headerShown: false }}
                     />
                     <Stack.Screen
                         name="(worker)"
-                        options={{ headerShown: true }}
+                        options={{ headerShown: false }}
                     />
                 </Stack>
             </View>

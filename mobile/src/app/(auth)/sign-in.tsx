@@ -9,19 +9,30 @@ import {
     Platform,
 } from 'react-native';
 import { useState } from 'react';
+import { useCallback } from 'react';
+import { Link, router } from 'expo-router';
 
-import { Link } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
+
 import { Form, Button } from '@components/ui';
 import { useAuth } from '@context/authContext';
 import { login } from '@api/auth';
 
 export default function SignIn() {
-    const { handleLoginSuccess } = useAuth();
+    const { handleLoginSuccess, authToken } = useAuth();
     const [isSubmitting, setSubmitting] = useState(false);
     const [form, setForm] = useState({
         email: '',
         password: '',
     });
+
+    useFocusEffect(
+        useCallback(() => {
+            if (authToken) {
+                return router.push('/dashboard');
+            }
+        }, [authToken]),
+    );
 
     const validateForm = () => {
         if (!form.email || !form.password) {

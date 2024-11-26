@@ -1,5 +1,4 @@
 import { Text, View, ScrollView } from 'react-native';
-import { router } from 'expo-router';
 
 import { useAuthRedirect } from '@context/useAuthRedirect';
 import { useAuth } from '@context/authContext';
@@ -12,15 +11,19 @@ export default function Setting() {
         <View className="bg-primary h-full">
             <ScrollView
                 contentContainerStyle={{
-                    height: '100%',
+                    flexGrow: 1,
+                    padding: 16,
                 }}
             >
-                <View className="w-full h-full flex justify-center items-center ">
-                    <Text className="font-semibold text-4xl">Setting</Text>
+                {/* Header */}
+                <Text className="font-semibold text-quaternary text-4xl mb-6 text-center">
+                    Setting
+                </Text>
+                <View className="flex h-[90%] w-full items-center justify-center">
                     <Button
                         title="Sign out"
                         handlePress={() => logout()}
-                        containerStyles="mt-16 w-fit px-10 mt-7"
+                        containerStyles="w-fit px-10"
                         isLoading={false}
                     />
                 </View>

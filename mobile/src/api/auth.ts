@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://192.168.1.77:8000';
+// const API_URL = 'http://192.168.1.77:8000';
+const API_URL = 'http://172.30.89.94:8000';
 
 export const register = async (
     email: string,
