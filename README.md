@@ -2,7 +2,7 @@
 
 [![Status: Deprecated](https://img.shields.io/badge/Status-Deprecated-lightgrey)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-Platform เป็น mobile application
+[![Platform: Mobile](https://img.shields.io/badge/Platform-Mobile-blue)]()
 [![Version](https://img.shields.io/github/v/release/ARTTTT-TTTT/team-survey)](https://github.com/ARTTTT-TTTT/team-survey/releases)
 
 > > **Team Survey** is a mobile application designed to extract information from the front of Thai national ID cards. Users can simply capture the ID card using their mobile device's camera, and the app uses OCR and AI to automatically extract and process the data in real time. This helps streamline the process of collecting accurate and consistent personal information for teams or organizations.
